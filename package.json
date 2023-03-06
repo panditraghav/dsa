@@ -1,0 +1,17 @@
+{
+    "name": "dsa",
+    "version": "1.0.0",
+    "description": "Data structures and algorithm",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node ./src/main.ts"
+    },
+    "author": "Raghav Pandit",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.14.6",
+        "ts-node": "^10.9.1",
+        "tslib": "^2.5.0",
+        "typescript": "^4.9.5"
+    }
+}
