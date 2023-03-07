@@ -1,3 +1,3 @@
-const message: string = "Hello World"
+import graph from "./dataStructures/graph";
 
-console.log(message)
+graph()

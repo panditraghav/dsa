@@ -1,0 +1,74 @@
+/** 
+* Creates a graph using adjacency list (A Map)
+ */
+export function createListGraph<T = string>() {
+    return new Map<T, [T]>()
+}
+
+export function insertEdgeListGraph<T = string>(graph: Map<T, [T]>, src: T, dest: T) {
+    if (
+        !graph.get(src)?.push(dest)
+    ) {
+        graph.set(src, [dest])
+    }
+}
+
+export function BFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T) {
+    const queue: T[] = [start]
+    const visited = new Set<T>([start])
+    let level = 0
+
+    while (queue.length > 0) {
+        const head = queue.shift()
+        level++;
+        console.log(head)
+        if (head == undefined) throw Error("Queue is empty but inside loop??");
+        if (head === value) {
+            console.log(`${value} found it!, level: ${level}`)
+        }
+        const children = graph.get(head)
+
+        if (children) {
+            for (const val of children) {
+                if (val === value) {
+                    console.log(`${value} found it!, level: ${level}`)
+                    return;
+                }
+                if (!visited.has(val)) {
+                    visited.add(val)
+                    queue.push(val)
+                }
+
+            }
+        }
+    }
+}
+
+export function DFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T, visited = new Set<T>()) {
+    visited.add(start)
+    if (start === value) {
+        console.log(start + ' Found it!')
+    } else
+        console.log(start)
+    const children = graph.get(start)
+    if (children) {
+        for (const c of children) {
+            if (!visited.has(c)) {
+                DFSListGraph(graph, c, value, visited)
+            }
+        }
+    }
+}
+
+export default function graph() {
+    const myGraph = createListGraph<number>()
+    insertEdgeListGraph(myGraph, 0, 1);
+    insertEdgeListGraph(myGraph, 0, 2);
+    insertEdgeListGraph(myGraph, 1, 3);
+    insertEdgeListGraph(myGraph, 2, 4);
+
+    console.log(myGraph)
+    BFSListGraph(myGraph, 0)
+    console.log("-------")
+    BFSListGraph(myGraph, 0, 3)
+}
