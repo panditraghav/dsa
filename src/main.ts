@@ -1,3 +1,5 @@
-import graph from "./dataStructures/graph";
+import { heapSort } from './dataStructures/heap'
 
-graph()
+const arr = [15, 10, 8, 30, 16, 20, 50]
+
+console.log(heapSort(arr))
