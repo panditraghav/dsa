@@ -1,11 +1,11 @@
 /** 
 * Creates a graph using adjacency list (A Map)
  */
-export function createListGraph<T = string>() {
-    return new Map<T, [T]>()
+export function createListGraph() {
+    return new Map()
 }
 
-export function insertEdgeListGraph<T = string>(graph: Map<T, [T]>, src: T, dest: T) {
+export function insertEdgeListGraph(graph, src, dest) {
     if (
         !graph.get(src)?.push(dest)
     ) {
@@ -13,9 +13,9 @@ export function insertEdgeListGraph<T = string>(graph: Map<T, [T]>, src: T, dest
     }
 }
 
-export function BFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T) {
-    const queue: T[] = [start]
-    const visited = new Set<T>([start])
+export function BFSListGraph(graph, start, value) {
+    const queue = [start]
+    const visited = new Set < T > ([start])
     let level = 0
 
     while (queue.length > 0) {
@@ -44,7 +44,7 @@ export function BFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T
     }
 }
 
-export function DFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T, visited = new Set<T>()) {
+export function DFSListGraph(graph, start, value, visited = new Set()) {
     visited.add(start)
     if (start === value) {
         console.log(start + ' Found it!')
@@ -61,7 +61,7 @@ export function DFSListGraph<T = string>(graph: Map<T, [T]>, start: T, value?: T
 }
 
 export default function graph() {
-    const myGraph = createListGraph<number>()
+    const myGraph = createListGraph()
     insertEdgeListGraph(myGraph, 0, 1);
     insertEdgeListGraph(myGraph, 0, 2);
     insertEdgeListGraph(myGraph, 1, 3);
