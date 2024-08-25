@@ -3,7 +3,7 @@
 
 using namespace std;
 int main() {
-  cout << "Hello World" << endl;
-  test();
+  cout << "Testing merge sort" << endl;
+  testMergeSort();
   return 0;
 }
