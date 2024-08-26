@@ -68,7 +68,7 @@ void mergeSort(std::vector<int> &arr, int low, int high) {
 void testMergeSort() {
   std::cout << "--------------------Testing merge sort----------------"
             << std::endl;
-  std::vector<int> arr = inputVector();
+  std::vector<int> arr = getVectorInput();
 
   mergeSort(arr, 0, arr.size() - 1);
 
@@ -137,7 +137,7 @@ void quickSort(std::vector<int> &arr, int low, int high) {
 void testQuickSort() {
   std::cout << "--------------------Testing quick sort----------------"
             << std::endl;
-  std::vector<int> arr = inputVector();
+  std::vector<int> arr = getVectorInput();
 
   quickSort(arr, 0, arr.size() - 1);
 
