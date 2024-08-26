@@ -11,6 +11,15 @@
 ██  ██  ██ ██      ██   ██ ██    ██ ██               ██ ██    ██ ██   ██    ██
 ██      ██ ███████ ██   ██  ██████  ███████     ███████  ██████  ██   ██    ██
 */
+/*
+ * - The Merge function merges the array in a sorted order using two pointers
+ * one pointer for first array and other for second, we compare the elements
+ * of both pointers and push the smaller element to the temporary array and
+ * increment the pointer whose element is pushed until any one array has been
+ * traversed
+ * - After that we traverse both array to push any remaining elements
+ * - At the end we copy the temporary sorted array to our main array
+ */
 void merge(std::vector<int> &arr, int low, int mid, int high) {
   std::vector<int> temp;
   int i = low;
@@ -38,7 +47,13 @@ void merge(std::vector<int> &arr, int low, int mid, int high) {
     arr[i + low] = temp[i];
   }
 }
-
+/*
+ * - Merge sort's time complexity is same as quick sort which is O(nlogn)
+ *   but it requires temporary array
+ * - In Merge sort we divide the array into half recursively until we have
+ *   only one element left then we merge the two divided arrays using the
+ *   merge function
+ * */
 void mergeSort(std::vector<int> &arr, int low, int high) {
   if (low == high)
     return;
@@ -72,6 +87,25 @@ void testMergeSort() {
  ██████   ██████  ██  ██████ ██   ██     ███████  ██████  ██   ██    ██
     ▀▀
 */
+/*
+ * - Quick sort's time complexity is same as merge sort which is O(nlogn), but
+ * it is better in space complexity as it doesn't require temporary array
+ * - In Quick sort the intuition is to put the pivot element at it's right
+ * position
+ * - We take first element as pivot and take two pointers i=low; j=high
+ * - We increment i until we find element greater then pivot and decrement j
+ *   until we find element smaller then pivot
+ * - After that we swap the elements at index i and j, by doing so the larger
+ *   element goes at right side of the pivot and smaller on the left side
+ * - We repeat this process of finding larger and smaller element and swappign
+ * them until j < i when this condition happens then all the right side elements
+ * are greater then pivot and left side element are smaller then pivot
+ * - Then we swap pivot element with element at index j as that is the smaller
+ * element so it goes to the left, hence we have put one elment to it's right
+ * place
+ * - After that we apply the algorithm recursively to the left and right side of
+ * the sorted element until low == high then it is the only element
+ */
 void quickSort(std::vector<int> &arr, int low, int high) {
   if (low >= high)
     return;
