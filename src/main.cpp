@@ -1,7 +1,6 @@
-#include "sort.h"
+#include "array_easy.h"
 
-using namespace std;
 int main() {
-  testQuickSort();
+  leftRotateArrayByOnePlace();
   return 0;
 }
