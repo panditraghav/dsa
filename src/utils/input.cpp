@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> inputVector() {
+std::vector<int> getVectorInput() {
   int num;
   std::vector<int> arr;
   std::cout << "Enter number of elements in array: ";
