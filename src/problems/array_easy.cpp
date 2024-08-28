@@ -18,3 +18,39 @@ void leftRotateArrayByOnePlace() {
 
   printVector(arr);
 }
+
+void leftRotateArrayByKPlace() {
+  using namespace std;
+  vector<int> arr = getVectorInput();
+  cout << "Number of places to rotate the array:- ";
+  int k;
+  cin >> k;
+
+  int rotationCount = k % arr.size();
+  vector<int> temp;
+
+  int i = 0;
+  for (; i < rotationCount; i++) {
+    temp.push_back(arr[i]);
+  }
+  for (; i < arr.size(); i++) {
+    arr[i - rotationCount] = arr[i];
+  }
+
+  // INFO: first approach
+  // for (int i = arr.size() - temp.size(); i < arr.size(); i++) {
+  //   arr[i] = temp[i - (arr.size() - temp.size())];
+  // }
+  // INFO: Second approach
+  // i = arr.size() - temp.size()
+  // for (int tv : temp) {
+  //   arr[i] = tv;
+  //   i++;
+  // }
+  // INFO: Third approach
+  for (int i = 0; i < temp.size(); i++) {
+    arr[arr.size() - temp.size() + i] = temp[i];
+  }
+
+  printVector(arr);
+}

@@ -1,6 +1,6 @@
 #include "array_easy.h"
 
 int main() {
-  leftRotateArrayByOnePlace();
+  leftRotateArrayByKPlace();
   return 0;
 }
