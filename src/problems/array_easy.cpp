@@ -1,6 +1,8 @@
+#include "array_easy.h"
 #include "input.h"
 #include "output.h"
 #include <iostream>
+#include <set>
 #include <vector>
 
 void leftRotateArrayByOnePlace() {
@@ -53,4 +55,76 @@ void leftRotateArrayByKPlace() {
   }
 
   printVector(arr);
+}
+
+void unionOfSortedArray::brute() {
+  using namespace std;
+  cout << "Enter 1st array:\n";
+  vector<int> arr1 = getVectorInput();
+  cout << "Enter 2nd array:\n";
+  vector<int> arr2 = getVectorInput();
+
+  set<int> unionSet;
+
+  // set insertion takes O(logn) -> n = sizeo fo set
+  // So for n1 element O(n1logn)
+  for (int e : arr1) {
+    unionSet.insert(e);
+  }
+  // So for n2 element O(n2logn)
+  for (int e : arr2) {
+    unionSet.insert(e);
+  }
+
+  cout << "The union is:- " << endl;
+
+  // log(n1 + n2)
+  for (int e : unionSet) {
+    cout << e << " ";
+  }
+}
+
+void unionOfSortedArray::optimal() {
+  using namespace std;
+  // cout << "Enter 1st array:\n";
+  // vector<int> arr1 = getVectorInput();
+  // cout << "Enter 2nd array:\n";
+  // vector<int> arr2 = getVectorInput();
+  vector<int> arr1 = {1, 3, 4, 5, 8, 9};
+  vector<int> arr2 = {2, 4, 5, 7, 8, 12, 14, 18};
+
+  int p1 = 0, p2 = 0;
+  vector<int> un;
+
+  while (p1 < arr1.size() && p2 < arr2.size()) {
+    if (arr1[p1] < arr2[p2]) {
+      if (un.size() == 0 || un.back() != arr1[p1]) {
+        un.push_back(arr1[p1]);
+      }
+      p1++;
+    } else {
+      if (un.size() == 0 || un.back() != arr2[p2]) {
+        un.push_back(arr2[p2]);
+      }
+      p2++;
+    }
+  }
+  while (p1 < arr1.size()) {
+    if (un.size() == 0 || un.back() != arr1[p1]) {
+      un.push_back(arr1[p1]);
+    }
+    p1++;
+  }
+  while (p2 < arr2.size()) {
+    if (un.size() == 0 || un.back() != arr2[p2]) {
+      un.push_back(arr2[p2]);
+    }
+    p2++;
+  }
+  cout << "The first array:- ";
+  printVector(arr1);
+  cout << "The second array:- ";
+  printVector(arr2);
+  cout << "The union is:- ";
+  printVector(un);
 }

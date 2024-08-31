@@ -1,6 +1,6 @@
 #include "array_easy.h"
 
 int main() {
-  leftRotateArrayByKPlace();
+  unionOfSortedArray::optimal();
   return 0;
 }
