@@ -3,11 +3,12 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> getVectorInput() {
-  int num;
+std::vector<int> getVectorInput(int num = 0) {
   std::vector<int> arr;
-  std::cout << "Enter number of elements in array: ";
-  std::cin >> num;
+  if (num == 0) {
+    std::cout << "Enter number of elements in array: ";
+    std::cin >> num;
+  }
   std::cout << "\nEnter " << num << " elements :\n";
 
   for (int i = 0; i < num; i++) {

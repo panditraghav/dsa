@@ -1,3 +1,3 @@
 #include <vector>
 
-std::vector<int> getVectorInput();
+std::vector<int> getVectorInput(int num = 0);
