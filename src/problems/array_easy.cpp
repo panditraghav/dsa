@@ -144,4 +144,17 @@ void findMissingNumber::brute() {
   cout << "Enter integer N: ";
   cin >> n;
   vector<int> arr = getVectorInput(n - 1);
+
+  int me = 0;
+  for (int i = 0; i < n; i++) {
+    if (arr[i] != i + 1) {
+      me = i + 1;
+      break;
+    }
+  }
+  if (me) {
+    cout << "Missing element is:- " << me << endl;
+  } else {
+    cout << "There is no missing element in this array\n";
+  }
 }
