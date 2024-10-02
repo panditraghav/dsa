@@ -128,3 +128,20 @@ void unionOfSortedArray::optimal() {
   cout << "The union is:- ";
   printVector(un);
 }
+
+/*
+ *
+ * Problem Statement: Given an integer N and an array of size N-1 containing N-1
+ * numbers between 1 to N. Find the number(between 1 to N), that is not present
+ * in the given array.
+ */
+void findMissingNumber::brute() {
+  using namespace std;
+  cout << "Problem Statement: Given an integer N and an array of size N-1 "
+          "containing N-1 numbers between 1 to N. Find the number(between 1 to "
+          "N), that is not present in the given array\n";
+  int n;
+  cout << "Enter integer N: ";
+  cin >> n;
+  vector<int> arr = getVectorInput(n - 1);
+}

@@ -1,6 +1,6 @@
 #include "array_easy.h"
 
 int main() {
-  unionOfSortedArray::optimal();
+  findMissingNumber::brute();
   return 0;
 }
